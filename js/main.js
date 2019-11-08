@@ -11,8 +11,8 @@ function fetchData(){
                     item.submenu.map( submenuItem => {
                         return submenu += `<li><a href="${submenuItem.url}">${submenuItem.title}</a></li>`
                     });
-                    return menu += `<li class="item item__with-submenu">
-                    <a href="${item.url}">${item.title}</a>
+                    return menu += `<li id="item-submenu" class="item item__with-submenu">
+                        <a href="${item.url}">${item.title}</a>
                         <div class="submenu">
                             <ul>
                             ${submenu}
@@ -33,7 +33,7 @@ function fetchData(){
                         <span class="burger"></span>
                     </label>
                     <div class="inner-wrapper">
-                        <ul>
+                        <ul class="menu">
                             ${menu}
                         </ul>
                     </div>
@@ -59,9 +59,18 @@ function fetchData(){
                     document.body.classList.remove('menuOpen');
                 } else {
                     document.body.classList.add('menuOpen');
-                }
-                
-            })
+                }   
+            });
+            console.log("ffffff",document.getElementById('item-submenu'))
+            document.getElementById('item-submenu').addEventListener('click', (event) => {
+                console.log("hello");
+                event.preventDefault();
+                if(document.querySelector('#item-submenu .submenu').classList.contains('open')) {
+                    document.querySelector('#item-submenu .submenu').classList.remove('open');
+                } else {
+                    document.querySelector('.submenu').classList.add('open');
+                }   
+            });
             
             
         })

@@ -28,6 +28,14 @@ footer {
     padding: 2rem;
     text-align: center;
 }
+
+/* header style */
+
+header a, header .item__with-submenu {
+    font-size: 3rem;
+    text-decoration: none;
+    color: #333;
+}
 header .title {
     position: absolute;
     top: 40vh;
@@ -36,6 +44,7 @@ header .title {
     text-align: center;
 }
 
+/* burger container */
 .wrapper-menu input, .wrapper-menu label {
     position: absolute;
     top: 2rem;
@@ -379,7 +388,7 @@ header .title {
     overflow: hidden;
 }
 
-.wrapper-menu .inner-wrapper ul {
+.wrapper-menu .inner-wrapper .menu {
     opacity: 0;
     list-style: none;
     align-items: center;
@@ -389,9 +398,52 @@ header .title {
     flex-direction: column;
     justify-content: center;
     padding: 0;
+    text-align: center;
 }
 
-.wrapper-menu input:checked+label+.inner-wrapper ul {
+.inner-wrapper .menu .item .submenu{
+    height: 0;
+    opacity: 0;
+}
+
+.inner-wrapper .menu .item .submenu ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.inner-wrapper .menu .item .submenu.open{
+
+    -webkit-animation: submenu 1s ease forwards;
+    animation: submenu 1s ease forwards;
+}
+
+@-webkit-keyframes submenu {
+    0% {
+        opacity: 0;
+        height: auto;
+        transform: scaleY(0);
+    }
+    100% {
+        opacity: 1;
+        height: auto;
+
+        transform: scaleY(1);
+    }
+}
+
+@keyframes submenu {
+    0% {
+        opacity: 0;
+        height: 0;
+    }
+    100% {
+        opacity: 1;
+        height: auto;
+    }
+}
+
+.wrapper-menu input:checked+label+.inner-wrapper .menu{
     -webkit-animation: innerMenu 1s ease forwards;
     animation: innerMenu 1s ease forwards;
 }
@@ -420,6 +472,8 @@ header .title {
     }
 }
 
+
+/* loader */
 .loader__wrapper{
     background: white;
     position: absolute;
