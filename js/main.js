@@ -78,7 +78,7 @@ function fetchData(){
 }
 
 function init() {
-    let loader = `<div class="loader__wrapper"><img src="./img/loader.jpg" /></div>`;
+    let loader = `<div class="loader__wrapper"><img src="./img/ldn.jpg" /></div>`;
     document.getElementById('root').innerHTML = loader;
     setTimeout(() => {
         fetchData();
